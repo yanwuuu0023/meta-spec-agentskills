@@ -1,0 +1,9 @@
+# Ignore accidental host install paths created by running `init` inside the package dir.
+.trae/
+.trae-cn/
+.codebuddy/
+
+# Ignore Node and packaging artifacts.
+node_modules/
+*.tgz
+.DS_Store

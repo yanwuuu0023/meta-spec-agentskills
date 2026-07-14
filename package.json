@@ -1,0 +1,21 @@
+{
+  "name": "meta-spec-agentskills",
+  "version": "1.0.0",
+  "description": "Install the meta-spec skill system into a project from the AI Coding Agent Application's host directory.",
+  "bin": {
+    "meta-spec-agentskills": "./bin/meta-spec-agentskills.js"
+  },
+  "main": "./lib/install.js",
+  "scripts": {
+    "test": "node --test lib"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "skills/"
+  ]
+}

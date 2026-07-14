@@ -1,0 +1,11 @@
+# Local install paths (when `init` is run inside the package dir itself)
+.trae/
+.trae-cn/
+.codebuddy/
+
+# Node and packaging artifacts
+node_modules/
+*.tgz
+
+# OS
+.DS_Store
