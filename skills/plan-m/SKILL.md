@@ -16,9 +16,9 @@ description: User invokes to turn a selected todo subheading into a Z-level plan
 ```markdown
 ## v0.4.0 base
 
-### A. Purpose
+### A. Goal
 
-**Purpose**: Add Week view + Agenda view
+**Goal**: Add Week view + Agenda view
 **Background**: v0.3 only has Month view
 **Scope**: <optional>
 **Not in scope**: <optional>
