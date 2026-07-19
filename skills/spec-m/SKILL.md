@@ -9,21 +9,20 @@ description: User invokes to verify an agreed plan and turn it into a Z-level im
 - after agreeing on `docs/vX.Y/vX.Y.Z/plan.md`, or
 - after `plan-m` appends an agreed Plan Verification correction to `plan.md ## Updated`.
 
-**Step 1 — Verify the plan.** Run all six checks before drafting `spec.md`:
+**No-prompt write.** If the user invokes with no extra description, run the three checks and write `spec.md` immediately from `docs/vX.Y/vX.Y.Z/plan.md` and `docs/vX.Y/version.md` context — do not ask any clarifying question first. The user reads and edits the file themselves. Plan Verification halt still applies on any hard-check failure.
+
+**Step 1 — Verify the plan.** Run all three checks before drafting `spec.md`:
 
 | Type | Check |
 |---|---|
-| Hard | Boundary defaults cover cross-day, cross-month, empty, and edge-time cases |
 | Hard | All dependencies, including implicit utilities and hooks, are declared |
-| Hard | The boundary between this Z and later Zs is explicit |
-| Soft | UI closure-loop data sources are named |
-| Soft | Colors align with `design-system.md` tokens |
-| Soft | Storage and types are consistent and schema-compatible |
+| Hard | UI closure-loop data sources are named |
+| Hard | Storage and types are consistent and schema-compatible |
 
 If any check fails:
 1. Append `- spec-m: <reason>` to `plan.md ## Updated`.
 2. Stop before drafting or updating `spec.md`.
-3. Report `Spec-m Halt on Plan Verification`, grouped into `[Hard]` and `[Soft]`; include suggestions for soft failures only.
+3. Report `Spec-m Halt on Plan Verification` listing every failed check.
 4. Wait for user to discuss the issue and re-invoke `plan-m`.
 
 **Step 2 — Write the spec.** When all checks pass, write `docs/vX.Y/vX.Y.Z/spec.md` using this structure:
@@ -36,11 +35,8 @@ If any check fails:
 **Plan**: <plan subheading>
 **Decisions**: <concise summary>
 
-- [x] Boundary default coverage
 - [x] Dependency declaration completeness
-- [x] Version-boundary contract
 - [x] UI closure-loop data sources named
-- [x] Color token alignment
 - [x] Storage / type consistency
 
 ### B. File Change List
@@ -60,13 +56,13 @@ If any check fails:
 ```
 
 Rules:
-- A names the plan subheading, summarizes its decisions, and records all six passed checks.
+- A names the plan subheading, summarizes its decisions, and records all three passed checks.
 - B lists every file to add, modify, or delete.
 - C defines the implementation shape without full code.
 - D gives ordered, independently verifiable steps.
 - Edit `spec.md` through discussion until user invokes `code-m`.
 
-**After a Plan Verification correction.** Re-run all six checks. Once they pass, write or update the spec, create `## Updated` if absent, and append `- plan update: <reason>; see plan.md ## Updated "<line text>"`.
+**After a Plan Verification correction.** Re-run all three checks. Once they pass, write or update the spec, create `## Updated` if absent, and append `- plan update: <reason>; see plan.md ## Updated "<line text>"`.
 
 ## Why this skill exists
 
