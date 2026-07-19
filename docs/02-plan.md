@@ -11,16 +11,16 @@ You invoke `plan-m` either:
 - For a selected unchecked subheading in `docs/vX.Y/todo.md` (the common case), or
 - After discussing a plan issue recorded by `spec-m` in `plan.md ## Updated`.
 
-It writes `docs/vX.Y/vX.Y.Z/plan.md` with four blocks (A. Purpose, B. UI/UX Operation Closure Loop, C. Edge Cases + Defaults, Q&A).
+**No-prompt write.** If you invoke with no extra description, the agent writes `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/version.md` context — you read and edit the file yourself.
 
 ## The plan structure
 
 ```markdown
 ## v0.4.0 base
 
-### A. Purpose
+### A. Goal
 
-**Purpose**: Add Week view + Agenda view
+**Goal**: Add Week view + Agenda view
 **Background**: v0.3 only has Month view
 **Scope**: <optional>
 **Not in scope**: <optional>
@@ -36,39 +36,33 @@ Tasks render at their scheduledStart time
   ↓
 Clicks a task → Edit modal opens
 
-### C. Edge Cases + Default Recommendation
+### C. Edge Cases & Open Decisions
 
-| Edge case | Options | Default |
+| # | Question / Edge case | Default |
 |---|---|---|
-| <case> | <2–3 options> | **<recommended option>** — <reason> |
-
-### Q1-Qn
-
-| # | Question | Default |
-|---|---|---|
-| Q1 | Use react-day-picker or hand-write the grid? | **Hand-written** — more flexible |
+| 1 | <edge case or open decision, phrased as a question> | **<option>** — <reason> |
 ```
 
 ## What each block means
 
-- **A. Purpose** — what changes, why, and what is in/out of scope. Also lists dependencies introduced by this Z.
+- **A. Goal** — what this version changes, why, and what is in/out of scope. Also lists dependencies introduced by this Z.
 - **B. UI/UX Operation Closure Loop** — user-action chain, no code. "Click → See → Render → Click modal opens" form.
-- **C. Edge Cases + Default Recommendation** — for each edge case, 2–3 options with a recommended default and a reason.
-- **Q&A** — every unresolved decision becomes a row with a default recommendation.
+- **C. Edge Cases & Open Decisions** — every edge case and open decision, phrased as a question, with a default recommendation.
 
 ## Flow inside this skill
 
 1. You select an unchecked subheading in `todo.md` (or you come from `spec-m` after a Plan Verification halt).
-2. You and the agent discuss purpose, UI flow, edge cases, and open questions.
-3. The agent drafts `plan.md`.
-4. You iterate on `plan.md` through discussion.
-5. When you are happy, you invoke `spec-m`.
+2. The agent writes `plan.md` (or you and the agent discuss purpose, UI flow, edge cases, and open questions).
+3. You iterate on `plan.md` through discussion.
+4. When you are happy, you invoke `spec-m`.
 
 ## Rules
 
 - Use the selected todo item's Z number and label for the plan heading; never invent Z.
-- A says what changes. B gives the user-action chain without code. C gives 2–3 options per edge case and recommends one.
-- Always end with a Q&A table.
+- A states what changes. B gives user-action chain without code. C lists every edge case and open decision with a default recommendation.
+- **C addresses B's UI/UX Operation Closure Loop; if this Z does not touch the closure loop, keep C minimal or skip it.**
+- **Every time B is edited, review C for drift and update it.**
+- List dependencies introduced by this Z under A.
 - `plan.md` is editable through discussion UNTIL you invoke `spec-m`. After `spec-m`, the plan body is locked.
 
 ## Plan Verification correction
