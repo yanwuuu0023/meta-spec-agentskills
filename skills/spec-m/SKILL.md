@@ -45,12 +45,6 @@ If any check fails:
 ### C. Code Skeleton
 
 <interfaces, data structures, function signatures, and pseudocode in implementation order; no full implementation>
-
-**API contract** (only if A listed endpoints):
-
-| Method | Path | Request | Response | Errors |
-|---|---|---|---|---|
-| <verb> | `/api/...` | <body or "none"> | <body or "none"> | <status codes> |
 ```
 
 Rules:

@@ -25,7 +25,6 @@ You invoke `plan-m` either:
 **Scope**: <optional>
 **Not in scope**: <optional>
 **Dependencies**: <optional>
-**API**: <endpoints this Z touches, or "none">
 
 ### B. UI/UX Operation Closure Loop
 
@@ -61,7 +60,6 @@ Clicks a task → Edit modal opens
 
 - Use the selected todo item's Z number and label for the plan heading; never invent Z.
 - A states what changes. B gives user-action chain without code. C lists every edge case and open decision with a default recommendation.
-- A also lists the endpoints this Z touches (or "none") so the API surface is explicit before spec.
 - **C addresses B's UI/UX Operation Closure Loop; if this Z does not touch the closure loop, keep C minimal or skip it.**
 - **Every time B is edited, review C for drift and update it.**
 - List dependencies introduced by this Z under A.
