@@ -30,14 +30,11 @@ If any check fails:
 ```markdown
 ## v0.4.0 base
 
-### A. Plan Reference + Plan Verification
+### A. Plan Reference
 
 **Plan**: <plan subheading>
 **Decisions**: <concise summary>
-
-- [x] Dependency declaration completeness
-- [x] UI closure-loop data sources named
-- [x] Storage / type consistency
+**Plan Verification**: passed all 3 checks.
 
 ### B. File Change List
 
@@ -47,19 +44,10 @@ If any check fails:
 
 ### C. Code Skeleton
 
-<interfaces, data structures, function signatures, and pseudocode; no full implementation>
-
-### D. Implementation Steps
-
-1. <independently verifiable step>
-2. <independently verifiable step>
+<interfaces, data structures, function signatures, and pseudocode in implementation order; no full implementation>
 ```
 
 Rules:
-- A names the plan subheading, summarizes its decisions, and records all three passed checks.
-- B lists every file to add, modify, or delete.
-- C defines the implementation shape without full code.
-- D gives ordered, independently verifiable steps.
 - Edit `spec.md` through discussion until user invokes `code-m`.
 
 **After a Plan Verification correction.** Re-run all three checks. Once they pass, write or update the spec, create `## Updated` if absent, and append `- plan update: <reason>; see plan.md ## Updated "<line text>"`.
@@ -72,7 +60,6 @@ A failed Plan Verification returns the issue to planning before implementation i
 
 ## What this skill does NOT do
 
-- Draft or update `spec.md` while any Plan Verification check fails.
 - Change plan decisions; append the issue to `plan.md ## Updated` and stop.
 - Write full implementation code.
 - Change `spec.md` without user confirmation.
