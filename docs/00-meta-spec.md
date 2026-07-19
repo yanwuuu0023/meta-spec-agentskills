@@ -17,11 +17,11 @@
 ## Fresh flow
 
 1. Discuss what to build.
-2. Discuss tech stack + API. Skip design-system unless you ask. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
+2. Discuss tech stack + API. Skip design-system unless you ask.
 3. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
 4. Initialize `AGENTS.md` (from `skills/meta-spec/references/AGENTS-template.md`) + `design-system.md` (if UI, from `skills/meta-spec/references/design-system-template.md`).
 5. `mkdir -p docs` (if not already exists).
-6. `git init` + commit `chore: init <project name> v0 with <stack>`.
+6. `git init` + commit `chore: init <project name> v0 with <stack>`. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
 
 ## In-Progress flow
 
@@ -41,7 +41,7 @@ Once bootstrap lands, the project has:
 - `AGENTS.md` at root — the agent's per-Z workflow owner.
 - `design-system.md` at root — only for UI projects.
 - `docs/vX/` — version directory with `version.md` inside (In-Progress flow only).
-- `docs/research/` — populated by the subagent if `init` step 2 subagent dispatch ran (Fresh flow only).
+- `docs/research/` — populated by the subagent after the bootstrap commit, if the user accepted the research offer in Fresh flow step 6.
 - Git history with one bootstrap commit.
 - The workflow is ready to enter `todo-m`.
 
