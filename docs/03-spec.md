@@ -50,6 +50,12 @@ When all checks pass, write `docs/vX.Y/vX.Y.Z/spec.md`:
 ### C. Code Skeleton
 
 <interfaces, data structures, function signatures, and pseudocode in implementation order; no full implementation>
+
+**API contract** (only if A listed endpoints):
+
+| Method | Path | Request | Response | Errors |
+|---|---|---|---|---|
+| <verb> | `/api/...` | <body or "none"> | <body or "none"> | <status codes> |
 ```
 
 ## What each block means
