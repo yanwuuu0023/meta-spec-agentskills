@@ -6,7 +6,7 @@
 
 ## What it does
 
-1. Asks your language preference (English / 中文) and persists it.
+1. Asks your language preference (English / 中文) and persists it. All docs outputs (except code files) will follow user's language preference.
 2. Detects whether the project is **Fresh** or **In-Progress** and confirms with you.
 3. Walks you through either the Fresh or In-Progress flow below.
 4. Lands at a first git commit with `AGENTS.md`, `design-system.md`, and `docs/` ready.
@@ -31,12 +31,11 @@ Decision:
 ## Fresh flow
 
 1. Discuss what to build.
-2. Discuss tech stack + API. Skip design-system unless you ask. The agent will offer to search for similar projects; say yes or no.
-3. Discuss relevant Skills + MCPs.
+2. Discuss tech stack + API. Skip design-system unless you ask. The agent will offer to search for similar projects; if yes, subagent will be dispatch to search first. The search results will be record in docs/research/.
+3. Discuss relevant Agent Skills + Agent MCPs for Agents when doing project. The agent will offer to search for relevant Skills and MCPs in marketplace.
 4. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from the template) + `design-system.md` (if UI).
-6. `mkdir -p docs`.
-7. `git init` + commit `chore: init <project name> v0 with <stack>`.
+6. `git init` + commit `chore: init <project name> v0 with <stack>`.
 
 ## In-Progress flow
 
@@ -45,12 +44,11 @@ Same shape, but with these differences:
 1. The agent gains a full understanding of what the project already does, then discusses with you to align.
 2. You and the agent agree on the current version (`vX`).
 3. From that alignment, you discuss tech stack + API + design-system.
-4. Discuss relevant Skills + MCPs.
+4. Discuss relevant Agent Skills + Agent MCPs for Agents when doing project. The agent will offer to search for relevant Skills and MCPs in marketplace.
 5. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
 6. Initialize `AGENTS.md` (populated from scan + discussion) + `design-system.md` (if UI).
-7. `mkdir -p docs`.
-8. Write `docs/vX/version.md`. The format is decided at write time — whatever helps the agent on the first `todo-m` call.
-9. `git init` if needed, then `commit vX <brief description based on archive>`.
+7. Write `docs/vX/version.md`. The format is decided at write time — whatever helps the agent on the first `todo-m` call.
+8. `git init` if needed, then `commit vX <brief description based on archive>`.
 
 ## Outputs after bootstrap
 

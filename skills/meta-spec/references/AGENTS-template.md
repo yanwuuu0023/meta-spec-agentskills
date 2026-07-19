@@ -63,3 +63,10 @@ Stop and discuss with user when not 95% sure what to do.
 | [e.g. github] | [Repo access] |
 
 > If missing, ASK user.
+
+---
+
+## language preference
+
+- Docs outputs: English or 中文 (user picks at step 2)
+- code outputs: English
