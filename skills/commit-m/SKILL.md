@@ -9,28 +9,26 @@ description: User invokes to finalize one Z: write its final `version.md`, creat
 
 **Execution order.**
 
-1. **Write `docs/vX.Y/vX.Y.Z/version.md`.** Read the final code, `plan.md`, `spec.md`, `debug.md`, and the selected `todo.md` item. Derive Z from that item's 1-indexed position, copy its subheading verbatim into the version heading, and use this format:
+1. **Write `docs/vX.Y/vX.Y.Z/version.md`.** Read the final code, `plan.md`, `spec.md`, and the selected `todo.md` item. Derive Z from that item's 1-indexed position, copy its subheading verbatim into the version heading, and use this format:
 
    ```markdown
    ## v0.4.0 add Week view to calendar
 
    ### What it does
    - <final user-visible behavior and important implementation details>
-   - If any `unfixed` outcomes from `debug.md`, mention what was removed and why (e.g. "The 'Add Event' button could not be made to work as specified, so it was removed").
 
    ### How user uses it
    1. <final user-action step>
 
    ### Code changes
    - `src/components/CalendarView.tsx:1-80` — <actual change>
-   - If `unfixed` outcomes, list removed files / lines.
    ```
 
-   Record the final result only. Base `How user uses it` on the plan's UI/UX operation loop, adjusted to match the final code and debug outcomes. List actual changed files and line ranges.
+   Record the final result only. Base `How user uses it` on the plan's UI/UX operation loop, adjusted to match the final code. List actual changed files and line ranges.
 
 2. **Handle new project-wide dependencies.** If any were introduced, stop and ask which entries to append to the existing `AGENTS.md ## Project Framework`. Continue only when user re-invokes `commit-m`; append approved entries, or make no change if user declines. If none were introduced, continue immediately.
 
-3. **Create one git commit for this Z.** Include code, `plan.md`, `spec.md`, `debug.md`, `version.md`, and any approved `AGENTS.md` addition. Use message `v<X.Y.Z> <subheading for this Z, copied verbatim>`.
+3. **Create one git commit for this Z.** Include code, `plan.md`, `spec.md`, `version.md`, and any approved `AGENTS.md` addition. Use message `v<X.Y.Z> <subheading for this Z, copied verbatim>`.
 
 4. **Flip the selected `todo.md` checkbox** from `[ ]` to `[x]`.
 
@@ -47,7 +45,7 @@ Keeping version documentation, commit creation, and task completion in one skill
 ## What this skill does NOT do
 
 - Run or commit without explicit user invocation.
-- Modify `plan.md`, `spec.md`, or `debug.md`.
+- Modify `plan.md` or `spec.md`.
 - Change `todo.md` beyond flipping the selected checkbox.
 - Split one Z across commits or combine multiple Zs.
 - Append project-wide dependencies to `AGENTS.md` without user approval.

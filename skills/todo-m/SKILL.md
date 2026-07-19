@@ -29,18 +29,18 @@ description: User invokes at ANY workflow stage to discuss `docs/vX.Y/todo.md` q
 - [ ] v0.5.1 polish — <description>
 
 ## Updated
-- YYYY-MM-DD — <owner>: <reason>; see <cross-ref>      ← appended by debug-m or this skill
+- YYYY-MM-DD — <owner>: <reason>; see <cross-ref>      ← appended by this skill only
 ```
 
 **Format rules.**
 - File: `docs/vX.Y/todo.md` (one per major version).
 - Subheading: `- [ ] v<X.Y.Z> <type> — <description>`. `<type>` is part of the description line, NOT a version-number suffix.
 - User writes the full subheading line per the template above, including the `v<X.Y.Z>` prefix. `commit-m` uses 1-indexed position to verify the Z matches the order.
-- `## Updated` section appended by `debug-m` (defer outcome) or by this skill (mid-version adjustments via discussion). Each line: `YYYY-MM-DD — <owner>: <reason>; see <cross-ref>`.
+- `## Updated` section is appended by this skill (mid-version adjustments via discussion). Each line: `YYYY-MM-DD — <owner>: <reason>; see <cross-ref>`.
 
 ## Why this skill exists
 
-**Universal body-lock principle.** Every doc body (plan.md / spec.md / todo.md) is written ONCE during its first phase, then locked FOREVER. Later corrections append to the relevant document's `## Updated` section; debug-phase issues are recorded in `debug.md`. This keeps bodies as stable snapshots of intent and `## Updated` as the changelog.
+**Universal body-lock principle.** Every doc body (plan.md / spec.md / todo.md) is written ONCE during its first phase, then locked FOREVER. Later corrections append to the relevant document's `## Updated` section. This keeps bodies as stable snapshots of intent and `## Updated` as the changelog.
 
 This skill's main work is **discussion**, not writing. The write is the END output, after user sign-off.
 
@@ -53,6 +53,6 @@ If discussion is pure exploration (think-out-loud), step 4 is skipped.
 
 ## What this skill does NOT do
 
-- Modify any file other than `docs/vX.Y/todo.md` (no plan / spec / debug / version / code).
+- Modify any file other than `docs/vX.Y/todo.md` (no plan / spec / version / code).
 - Flip `[ ]` to `[x]`.
 - Skip Z-number mapping (Z comes from position, never authored).

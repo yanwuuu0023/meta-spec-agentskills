@@ -1,13 +1,13 @@
 ---
 name: code-m
-description: User invokes to implement a signed spec and run runtime verification. May be re-invoked after user confirms an in-code or verification issue; records confirmed code decisions in `spec.md ## Updated`.
+description: User invokes to implement a signed spec and run runtime verification. May be re-invoked after user testing to address in-code or verification issues; records confirmed code decisions in `spec.md ## Updated`.
 ---
 
 ## What this skill does
 
 **Trigger.** User invokes either:
 - after signing `docs/vX.Y/vX.Y.Z/spec.md`, or
-- after discussing an in-code or verification issue and confirming the proposed change.
+- after user testing surfaced an issue and user wants the code changed.
 
 **Execution order.**
 
@@ -16,47 +16,22 @@ description: User invokes to implement a signed spec and run runtime verificatio
 3. **Verify.**
    - Use Playwright MCP for applicable user flows. If unavailable or failing, stop and ask user to choose `skip` or `reconfigure + retry`.
    - If a browser action fails, retry with another selector or approach.
-   - If behavior runs but does not match the spec, use the stop-discuss-confirm flow below.
+   - If behavior runs but does not match the spec, use the discuss-confirm flow below.
    - Give user 3–5 high-level UI/UX scenarios to verify manually.
 
 Then report in chat: created, modified, and deleted files; `spec.md ## Updated` entries; Playwright result; and manual scenarios. Verification results and manual scenarios stay in chat; do not add a Verification section to `spec.md`.
 
-**Stop-discuss-confirm.** If implementation reveals a missing small detail, or verification finds behavior that does not match the spec:
+**Discuss-confirm.** Used both during initial verification AND when user re-invokes after user testing. If the issue is:
+- **Code detail** (visual micro-adjustment, 2px / color / spacing not pinned by spec — spec does NOT cover this) → apply directly, append `- code update: <reason>; see <file>:<line>` to `spec.md ## Updated`, no other file touched.
+- **Spec gap** (spec said X but behavior is Y, or spec is silent on something user now wants) → stop, explain what needs to change, ask user to re-invoke `spec-m` (or `plan-m`) first.
+
+Steps:
 1. Stop before applying the unapproved change and explain what is needed.
 2. Wait for user to discuss it and re-invoke `code-m` with confirmation.
 3. Apply the change, then create `spec.md ## Updated` if absent and append `- code update: <reason>; see <file>:<line>`.
 4. Continue from the interrupted implementation or verification step.
 
-`code-m` completes implementation and verification once per Z. It is NOT re-invoked for user-testing issues — those go to `debug-m`.
-
-## User testing stage
-
-This is **not** part of `code-m`'s execution. It is the state transition between `code-m` returning and user invoking `debug-m` (and later `commit-m`).
-
-After `code-m` returns, user tests the code in chat. Each issue (or the whole pass) is classified by user into one of these 4 outcomes, which fall into 2 branches:
-
-| Branch | Outcome |
-|---|---|
-| Bug | `no issues` |
-| Bug | `nit` |
-| Not-bug | `defer` |
-| Not-bug | `preference shift` |
-
-**Matching examples.** Concrete cases for grounding the classification:
-
-| User report | Likely outcome | Why |
-|---|---|---|
-| "Button is 2px to the left" | `nit` | small visual fix, apply now |
-| "Color should be blue, not green" | `nit` | small visual fix, apply now |
-| "When I click, I get a 500 error" | `nit` | small code fix, apply now |
-| "Clicking the button does nothing" | `nit` | functional bug, fix now |
-| "Clicking the button should open a modal" | `preference shift` | operation logic change, apply now |
-| "Want a totally new design" | `defer` | new feature, separate Z |
-| "Everything works, ship it" | `no issues` | pass |
-
-User decides during chat, using the 4 outcomes above as the reference for matching the report to the right one. After classification, user invokes `debug-m` with the decided outcome name; `debug-m` performs the action and writes the section.
-
-When all issues are recorded, user invokes `commit-m` to finalize the Z.
+`code-m` is re-invoked freely for in-code issues. It is NOT the right tool when the user wants to **change the plan** (re-invoke `plan-m`) or **add a new todo** (re-invoke `todo-m`).
 
 ## Why this skill exists
 
@@ -69,7 +44,6 @@ Confirmed in-code changes are applied before they are appended to `spec.md ## Up
 - Skip or reorder the spec's Implementation Steps.
 - Apply an in-code decision before user confirms it by re-invoking `code-m`.
 - Edit the `spec.md` body.
-- Modify `plan.md`, `todo.md`, `debug.md`, `version.md`, or `AGENTS.md`.
-- Handle issues found during subsequent user testing.
-- Classify user-testing outcome (user decides in chat).
+- Modify `plan.md`, `todo.md`, `version.md`, or `AGENTS.md`.
+- Classify what kind of user-testing issue it is — that is the user's call.
 - Commit changes.

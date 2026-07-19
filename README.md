@@ -14,7 +14,7 @@ A workflow that forces three things to be written down at every step:
 
 - **What you agreed to build** — a plan, signed off before any code is written.
 - **What the code is supposed to do** — a spec, treated as the contract.
-- **What was decided during testing** — a debug log, written at the moment of decision.
+- **What was decided during testing** — appended to the relevant doc's `## Updated` section.
 
 When you're done, you have a folder of documents that explain exactly what your project is, why each piece exists, and what trade-offs you accepted along the way.
 
@@ -32,7 +32,6 @@ You adopt a fixed set of files in your project:
         └── v1.0.0/                        ← one folder per small piece
             ├── plan.md                    ← what was agreed
             ├── spec.md                    ← the implementation contract
-            ├── debug.md                   ← decisions made during testing
             └── version.md                 ← what actually shipped
 ```
 
@@ -40,15 +39,15 @@ You break your project into small pieces (called "Zs"). If `v1.0` is "ship the c
 
 Note: in standard semver (npm, cargo, pip), `v1.0` and `v1.0.0` refer to the same release. Here, `v1.0` is the minor-version container that groups all `v1.0.x` sub-versions; `v1.0.0` is the first sub-version inside it. Think of it like mobile OS releases: "iOS 17" is one product release in customers' minds, but `17.0.1`, `17.0.2` are separate shipped commits.
 
-For each small piece, you do the same six things in order:
+For each small piece, you do the same five things in order:
 
 ```
-todo-m → plan-m → spec-m → code-m → debug-m → commit-m → plan-m (loop)
+todo-m → plan-m → spec-m → code-m → commit-m → plan-m (loop)
 ```
 
 Each step writes one document. When you're done, you have one git commit per piece, one document per step, and an honest record of the project.
 
-## The seven steps
+## The five steps
 
 | # | Step | What it does |
 |---|---|---|
@@ -57,14 +56,13 @@ Each step writes one document. When you're done, you have one git commit per pie
 | 02 | `plan-m` | Write the plan for the small piece you're working on. |
 | 03 | `spec-m` | Check the plan for gaps; write the spec. |
 | 04 | `code-m` | Write the code; test it in a browser; hand back to you. |
-| 05 | `debug-m` | Record the testing decisions. |
-| 06 | `commit-m` | Write what shipped; one git commit; check the box in `todo.md`. |
+| 05 | `commit-m` | Write what shipped; one git commit; check the box in `todo.md`. |
 
-Per-step details: [00 — meta-spec](docs/00-meta-spec.md) · [01 — todo](docs/01-todo.md) · [02 — plan](docs/02-plan.md) · [03 — spec](docs/03-spec.md) · [04 — code](docs/04-code.md) · [05 — debug](docs/05-debug.md) · [06 — commit](docs/06-commit.md).
+Per-step details: [00 — meta-spec](docs/00-meta-spec.md) · [01 — todo](docs/01-todo.md) · [02 — plan](docs/02-plan.md) · [03 — spec](docs/03-spec.md) · [04 — code](docs/04-code.md) · [05 — commit](docs/05-commit.md).
 
 ## AGENTS.md
 
-A project-level `AGENTS.md` lives at your project root. The agent reads it at session start, so it boots with full project context. See [07 — AGENTS.md](docs/07-AGENTS.md).
+A project-level `AGENTS.md` lives at your project root. The agent reads it at session start, so it boots with full project context. See [06 — AGENTS.md](docs/06-AGENTS.md).
 
 ## Install
 

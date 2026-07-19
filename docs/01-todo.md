@@ -18,7 +18,7 @@ Common cases:
 
 - Before starting any Z, to align on which subheading you are picking.
 - Any time you want to add, remove, rename, or re-order subheadings.
-- After a `debug-m defer` outcome, if you want to update the `## Updated` section of `todo.md`.
+- After code-m surfaces a new piece of work mid-Z, to capture it as a new subheading.
 
 ## The file format
 
@@ -37,7 +37,7 @@ Common cases:
 - [ ] v0.5.1 polish — <description>
 
 ## Updated
-- YYYY-MM-DD — <owner>: <reason>; see <cross-ref>      ← appended by debug-m or this skill
+- YYYY-MM-DD — <owner>: <reason>; see <cross-ref>      ← appended by this skill
 ```
 
 Rules:
@@ -45,7 +45,7 @@ Rules:
 - One `todo.md` per major version (`docs/v0.5/todo.md`, `docs/v0.6/todo.md`).
 - Each subheading has the form `- [ ] v<X.Y.Z> <type> — <description>`. You write the whole line, including the `v<X.Y.Z>` prefix.
 - The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subheadings list. `commit-m` uses this position to verify the Z number in each subheading line matches its place in the list.
-- `## Updated` is appended by `debug-m` (when you defer a bug) or by `todo-m` itself (when you re-organize mid-version).
+- `## Updated` is appended by this skill (mid-version adjustments via discussion).
 
 ## Flow inside this skill
 

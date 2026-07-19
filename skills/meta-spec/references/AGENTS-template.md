@@ -5,7 +5,7 @@
 The loop:
 
 ```
-todo-m → plan-m → spec-m → code-m → debug-m → commit-m → plan-m
+todo-m → plan-m → spec-m → code-m → commit-m → plan-m
 ```
 
 Loop until every item in `todo.md` is done.
