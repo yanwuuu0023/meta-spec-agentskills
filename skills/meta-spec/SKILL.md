@@ -18,7 +18,8 @@ description: Project bootstrap. Walks through language check → Fresh / In-Prog
 3. Discuss relevant Agent Skills + Agent MCPs for Agents when doing project. The agent will offer to search for relevant Skills and MCPs in marketplace.
 4. Show `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from `references/AGENTS-template.md`) + `design-system.md` (if UI, from `references/design-system-template.md`).
-6. `git init` + commit `chore: init <project name> v0 with <stack>`.
+6. `mkdir -p docs` (if not already exists).
+7. `git init` + commit `chore: init <project name> v0 with <stack>`.
 
 **If In-Progress:**
 
@@ -28,5 +29,6 @@ description: Project bootstrap. Walks through language check → Fresh / In-Prog
 4. Discuss relevant Agent Skills + Agent MCPs for Agents when doing project. The agent will offer to search for relevant Skills and MCPs in marketplace.
 5. Show `continue discussion or type init to initialize`. Wait for `init`.
 6. Initialize `AGENTS.md` (from `references/AGENTS-template.md`, populated from scan + discussion) + `design-system.md` (if UI, from `references/design-system-template.md`).
-7. Write `docs/vX/version.md`. Format decided at write-time.
-8. `git init` if needed, then `commit vX <brief description based on archive>`.
+7. `mkdir -p docs` (if not already exists).
+8. Write `docs/vX/version.md`. Format decided at write-time.
+9. `git init` if needed, then `commit vX <brief description based on archive>`.
