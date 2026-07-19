@@ -19,7 +19,7 @@
 1. Discuss what to build.
 2. Discuss tech stack + API. Skip design-system unless you ask.
 3. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
-4. Initialize `AGENTS.md` (from `skills/meta-spec/references/AGENTS-template.md`) + `design-system.md` (if UI, from `skills/meta-spec/references/design-system-template.md`).
+4. Initialize `AGENTS.md` (from `skills/meta-spec/references/AGENTS-template.md`) + `design-system.md` (if UI, from `skills/meta-spec/references/design-system-template.md`). Initialize project framework from step 2 discussion.
 5. `mkdir -p docs` (if not already exists).
 6. `git init` + commit `chore: init <project name> v0 with <stack>`. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
 
