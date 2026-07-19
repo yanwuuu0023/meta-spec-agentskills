@@ -66,7 +66,7 @@ Rules:
 
 ## Why this skill exists
 
-`spec-m` is the implementation contract between the agreed plan and `code-m`. It verifies that the design is complete, then translates it into concrete file changes, code shape, and ordered steps so `code-m` does not invent missing behavior.
+`spec-m` is the implementation contract between the agreed plan and `code-m`. It verifies that the design is implementable, then translates it into concrete file changes, code shape, and ordered steps so `code-m` does not invent missing behavior.
 
 A failed Plan Verification returns the issue to planning before implementation instructions are written. Once user invokes `code-m`, the spec body becomes a stable contract; later code-phase decisions are recorded in `spec.md ## Updated` by `code-m`.
 
