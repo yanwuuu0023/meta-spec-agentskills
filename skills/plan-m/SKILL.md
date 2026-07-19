@@ -32,23 +32,16 @@ Tasks render at their scheduledStart time
   ↓
 Clicks a task → Edit modal opens
 
-### C. Edge Cases + Default Recommendation
+### C. Edge Cases & Open Decisions
 
-| Edge case | Options | Default |
+| # | Question / Edge case | Default |
 |---|---|---|
-| <case> | <2–3 options> | **<recommended option>** — <reason> |
-
-### Q1-Qn
-
-| # | Question | Default |
-|---|---|---|
-| Q1 | Use react-day-picker or hand-write the grid? | **Hand-written** — more flexible |
+| 1 | <edge case or open decision, phrased as a question> | **<option>** — <reason> |
 ```
 
 Rules:
 - Use the selected todo item's Z number and label for the plan heading; never invent Z.
-- A states what changes. B gives user-action chain without code. C gives 2–3 options for each edge case and recommends one.
-- Always end with a Q&A table; include every unresolved decision with a default recommendation.
+- A states what changes. B gives user-action chain without code. C lists every edge case and open decision with a default recommendation.
 - List dependencies introduced by this Z under A.
 - Edit `plan.md` through discussion until user invokes `spec-m`.
 
