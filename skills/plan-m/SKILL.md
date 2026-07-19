@@ -9,6 +9,8 @@ description: User invokes to turn a selected todo subheading into a Z-level plan
 - for a selected unchecked subheading in `docs/vX.Y/todo.md`, or
 - after discussing a plan issue recorded by `spec-m` in `plan.md ## Updated`.
 
+**No-prompt write.** If the user invokes with no extra description, write `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/version.md` context — do not ask any clarifying question first. The user reads and edits the file themselves.
+
 **Initial plan.** Write `docs/vX.Y/vX.Y.Z/plan.md` using this structure:
 
 ```markdown
