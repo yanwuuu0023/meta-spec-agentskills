@@ -50,22 +50,6 @@ Stop and discuss with user when not 95% sure what to do.
 
 ---
 
-## Preferred Skills
-
-- (Standard file / code tools are platform-provided, not listed here)
-
----
-
-## Preferred MCPs
-
-| MCP | Purpose |
-|---|---|
-| [e.g. github] | [Repo access] |
-
-> If missing, ASK user.
-
----
-
 ## language preference
 
 - Docs outputs: English or 中文 (user picks at step 2)
