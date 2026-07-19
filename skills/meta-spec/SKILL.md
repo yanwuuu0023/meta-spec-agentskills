@@ -14,7 +14,7 @@ description: Project bootstrap. Walks through language check → Fresh / In-Prog
 **If Fresh:**
 
 1. Discuss what to build.
-2. Discuss tech stack + API. Skip design-system unless you ask. The agent will offer to search for similar projects; If yes, subagent will be created and dispatched to search first. The search results will be record in docs/research/.
+2. Discuss tech stack + API. Skip design-system unless you ask. The agent will offer to search for similar projects; If yes, subagent will be created and dispatched to search first. The search results will be recorded in docs/research/.
 3. Discuss relevant Agent Skills + Agent MCPs for Agents when doing project. The agent will offer to search for relevant Skills and MCPs in marketplace.
 4. Show `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from `references/AGENTS-template.md`) + `design-system.md` (if UI, from `references/design-system-template.md`).
