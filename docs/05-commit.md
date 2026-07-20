@@ -2,7 +2,7 @@
 
 `commit-m` is the skill that finalizes one Z: writes `version.md`, creates one git commit, flips the todo checkbox. It is the boundary between an editable Z and a finalized one.
 
-[← 04-code](04-code.md) · [Next: 06-AGENTS →](06-AGENTS.md)
+[← 04-code](04-code.md) · 
 
 ## What it does
 
@@ -69,4 +69,4 @@ After `commit-m` you re-invoke `plan-m` for the next unchecked subheading. If th
 - Split one Z across commits or combine multiple Zs.
 - Append project-wide dependencies to `AGENTS.md` without your approval.
 
-[← 04-code](04-code.md) · [Next: 06-AGENTS →](06-AGENTS.md)
+[← 04-code](04-code.md) · 
