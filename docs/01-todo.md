@@ -37,7 +37,12 @@ Common cases:
 - [ ] v0.5.1 polish — <description>
 
 ## Updated
-- YYYY-MM-DD — <owner>: <reason>; see <cross-ref>      ← appended by this skill
+
+### Updates to existing subversions
+- v0.5.0 — <owner>: <reason>; see <cross-ref>      ← Z = the subversion being updated
+
+### New subversions added
+- v0.5.2 — <owner>: <reason>; see <cross-ref>      ← Z = subversions list length at append time
 ```
 
 Rules:
@@ -46,7 +51,9 @@ Rules:
 - Each subversion line has the form `- [ ] v<X.Y.Z> <type> — <description>`.
 - The `## subversions` body is only editable during the `todo-m` stage (before `plan-m` is first invoked for this version). After that it is LOCKED: any change must either append to `## Updated` or create a new version `docs/vX+1/todo.md`. Exception: `commit-m` may still flip `[ ]` to `[x]`.
 - The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subversions list. `commit-m` uses this position to verify the Z number in each subversion line matches its place in the list.
-- `## Updated` is appended by this skill (mid-version adjustments via discussion).
+- `## Updated` is split into two sub-sections. Each line uses `v<X.Y.Z>` (NOT `YYYY-MM-DD`) as the version identifier:
+  - `### Updates to existing subversions` — Z = position of the subversion being changed.
+  - `### New subversions added` — Z = subversions list length at append time (e.g., list `[v0.5.0, v0.5.1]` → new is `v0.5.2`).
 
 ## Flow inside this skill
 
