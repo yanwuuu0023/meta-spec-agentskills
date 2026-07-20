@@ -7,7 +7,7 @@ description: User invokes at ANY workflow stage to discuss `docs/vX.Y/todo.md` q
 
 **Trigger.** User invokes **at any workflow stage** to discuss `docs/vX.Y/todo.md`. After discussion, returns to caller (no workflow advance). Common cases:
 - **New major-version vX.Y entry**: most common; user says "start v0.5" (with or without requirements) → discusses and (if confirmed) writes fresh `docs/vX.Y/todo.md`.
-- **Mid-version adjust**: re-order subheadings, rename, split, etc.
+- **Mid-version adjust**: re-order subversions, rename, split, etc.
 - **Think about todos**: pure discussion, may not result in a write.
 
 **Inputs.**
@@ -24,7 +24,7 @@ description: User invokes at ANY workflow stage to discuss `docs/vX.Y/todo.md` q
 
 ---
 
-## subheadings
+## subversions
 - [ ] v0.5.0 base — <description>
 - [ ] v0.5.1 polish — <description>
 
@@ -44,7 +44,7 @@ description: User invokes at ANY workflow stage to discuss `docs/vX.Y/todo.md` q
 
 This skill's main work is **discussion**, not writing. The write is the END output, after user sign-off.
 
-1. Discuss what should change in `docs/vX.Y/todo.md` (scope, subheadings, split, reorder).
+1. Discuss what should change in `docs/vX.Y/todo.md` (scope, subversions, split, reorder).
 2. Summarize the proposed change.
 3. User signs off.
 4. Write / edit the file.

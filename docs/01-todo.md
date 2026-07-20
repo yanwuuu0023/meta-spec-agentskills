@@ -11,13 +11,13 @@ You invoke `todo-m` to discuss `todo.md` questions. With your sign-off, the file
 Common cases:
 
 - **New major version entry**: you say "start v0.5" (with or without requirements) → discusses and (if confirmed) writes fresh `docs/vX.Y/todo.md`.
-- **Mid-version adjust**: re-order subheadings, rename, split.
+- **Mid-version adjust**: re-order subversions, rename, split.
 - **Think about todos**: pure discussion, may not result in a write.
 
 ## When to invoke it
 
 - Before starting any Z, to align on which subheading you are picking.
-- Any time you want to add, remove, rename, or re-order subheadings.
+- Any time you want to add, remove, rename, or re-order subversions.
 - After code-m surfaces a new piece of work mid-Z, to capture it as a new subheading.
 
 ## The file format
@@ -32,7 +32,7 @@ Common cases:
 
 ---
 
-## subheadings
+## subversions
 - [ ] v0.5.0 base — <description>
 - [ ] v0.5.1 polish — <description>
 
@@ -44,12 +44,12 @@ Rules:
 
 - One `todo.md` per major version (`docs/v0.5/todo.md`, `docs/v0.6/todo.md`).
 - Each subheading has the form `- [ ] v<X.Y.Z> <type> — <description>`. You write the whole line, including the `v<X.Y.Z>` prefix.
-- The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subheadings list. `commit-m` uses this position to verify the Z number in each subheading line matches its place in the list.
+- The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subversions list. `commit-m` uses this position to verify the Z number in each subheading line matches its place in the list.
 - `## Updated` is appended by this skill (mid-version adjustments via discussion).
 
 ## Flow inside this skill
 
-1. You and the agent discuss what should change in `todo.md` (scope, subheadings, split, reorder).
+1. You and the agent discuss what should change in `todo.md` (scope, subversions, split, reorder).
 2. The agent summarizes the proposed change.
 3. You sign off.
 4. The agent writes / edits the file.
