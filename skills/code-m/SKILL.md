@@ -12,7 +12,7 @@ description: User invokes to implement a signed spec and run runtime verificatio
 **Execution order.**
 
 1. **Read the contract.** Read the full `spec.md`, including existing `## Updated` entries.
-2. **Implement.** Follow `### D. Implementation Steps` in order and create, modify, or delete every file listed in `### B. File Change List`.
+2. **Implement.** Follow `### C. Code Skeleton` in implementation order and create, modify, or delete every file listed in `### B. File Change List`.
 3. **Verify.**
    - Use Playwright MCP for applicable user flows. If unavailable or failing, stop and ask user to choose `skip` or `reconfigure + retry`.
    - If a browser action fails, retry with another selector or approach.
@@ -41,7 +41,7 @@ Confirmed in-code changes are applied before they are appended to `spec.md ## Up
 
 ## What this skill does NOT do
 
-- Skip or reorder the spec's Implementation Steps.
+- Skip or reorder the spec's `### C. Code Skeleton` implementation order.
 - Apply an in-code decision before user confirms it by re-invoking `code-m`.
 - Edit the `spec.md` body.
 - Modify `plan.md`, `todo.md`, `version.md`, or `AGENTS.md`.
