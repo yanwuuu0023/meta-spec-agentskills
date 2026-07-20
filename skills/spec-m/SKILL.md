@@ -52,6 +52,8 @@ Rules:
 
 **After a Plan Verification correction.** Re-run all three checks. Once they pass, write or update the spec, create `## Updated` if absent, and append `- plan update: <reason>; see plan.md ## Updated "<line text>"`.
 
+**Code-phase append.** `code-m` may also append `- code-m: <reason>; see <file>:<line>` to `spec.md ## Updated` during user testing, when a change drifts from spec-level concerns (interfaces, data structures, function signatures, pseudocode in C). The agent recommends; user confirms before the append happens.
+
 ## Why this skill exists
 
 `spec-m` is the implementation contract between the agreed plan and `code-m`. It verifies that the design is implementable, then translates it into concrete file changes and code shape so `code-m` does not invent missing behavior.

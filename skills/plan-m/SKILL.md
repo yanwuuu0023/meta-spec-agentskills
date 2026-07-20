@@ -51,6 +51,8 @@ Rules:
 
 **Plan Verification correction.** When invoked after a `spec-m` halt, append `- plan-m: <agreed correction>` to `plan.md ## Updated`; do not edit the plan body.
 
+**Code-phase append.** `code-m` may also append `- code-m: <reason>; see <file>:<line>` to `plan.md ## Updated` during user testing, when a change drifts from plan-level concerns (user-action logic, business rules, closure-loop behavior in B). The agent recommends; user confirms before the append happens.
+
 ## Why this skill exists
 
 `plan-m` turns a todo-sized intention into an agreed design before implementation details are written. Purpose, user flow, edge-case defaults, and Q&A make user-visible behavior explicit enough for `spec-m` to verify and translate into code instructions.
