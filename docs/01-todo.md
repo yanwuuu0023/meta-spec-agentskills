@@ -43,8 +43,9 @@ Common cases:
 Rules:
 
 - One `todo.md` per major version (`docs/v0.5/todo.md`, `docs/v0.6/todo.md`).
-- Each subheading has the form `- [ ] v<X.Y.Z> <type> — <description>`. You write the whole line, including the `v<X.Y.Z>` prefix.
-- The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subversions list. `commit-m` uses this position to verify the Z number in each subheading line matches its place in the list.
+- Each subversion line has the form `- [ ] v<X.Y.Z> <type> — <description>`.
+- The `## subversions` body is only editable during the `todo-m` stage (before `plan-m` is first invoked for this version). After that it is LOCKED: any change must either append to `## Updated` or create a new version `docs/vX+1/todo.md`. Exception: `commit-m` may still flip `[ ]` to `[x]`.
+- The Z number (`0`, `1`, `2`, ...) is the 1-indexed position in the subversions list. `commit-m` uses this position to verify the Z number in each subversion line matches its place in the list.
 - `## Updated` is appended by this skill (mid-version adjustments via discussion).
 
 ## Flow inside this skill
@@ -59,6 +60,8 @@ If the discussion is pure exploration (think-out-loud), step 4 is skipped.
 ## Universal body-lock principle
 
 Every doc body (`plan.md`, `spec.md`, `todo.md`) is written ONCE during its first phase, then locked FOREVER. Later corrections append to the document's `## Updated` section. This keeps bodies as stable snapshots of intent and `## Updated` as the changelog.
+
+For `todo.md`, the `## subversions` body exits its editable phase when the workflow enters `plan-m` for the first time. After that, only `## Updated` appends are allowed, or a new version todo.md must be created.
 
 ## What it does NOT do
 
