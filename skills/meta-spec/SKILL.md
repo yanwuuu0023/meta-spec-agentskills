@@ -1,6 +1,6 @@
 ---
 name: meta-spec
-description: Project bootstrap. Walks through language check → Fresh / In-Progress classification → discussion → init → commit.
+description: Project bootstrap. Walks through language check → Fresh / In-Progress classification → tech-only discussion → init → commit → optional autonomous research.
 ---
 
 1. User invokes meta-spec.
@@ -13,18 +13,18 @@ description: Project bootstrap. Walks through language check → Fresh / In-Prog
 
 **If Fresh:**
 
-1. Discuss what to build.
-2. Discuss tech stack + API. Skip design-system unless you ask.
-3. Show `continue discussion or type init to initialize`. Wait for `init`.
-4. Initialize `AGENTS.md` (from `references/AGENTS-template.md`) + `design-system.md` (if UI, from `references/design-system-template.md`). Initialize project framework from step 2 discussion.
-5. `mkdir -p docs/v0` (if not already exists).
-6. `git init` + commit `chore: init <project name> v0 with <stack>`. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
+1. Discuss tech stack + API. Skip design-system unless you ask. **Do not discuss app features or what to build — that belongs to `plan-m`.** If the user mentioned an ambiguous concept (e.g., "swimming app" — tracking? lessons? social?), clarify the concept first; never ask about features.
+2. Show `continue discussion or type init to initialize`. Wait for `init`.
+3. Initialize `AGENTS.md` (from `references/AGENTS-template.md`) + `design-system.md` (if UI, from `references/design-system-template.md`). Initialize project framework from step 1 discussion.
+4. `mkdir -p docs/v0` (if not already exists).
+5. `git init` + commit `chore: init <project name> v0 with <stack>`.
+6. Ask: do you want me to autonomously research all features of the `<concept>` the user mentioned? If yes, dispatch a subagent; results recorded in `docs/research/`. This is autonomous research — the agent decides what to look up, NOT an interactive Q&A about features.
 
 **If In-Progress:**
 
-1. Full understanding on what the project does; discuss with user to align.
+1. Read the project to classify tech architecture (stack + API). **Do not discuss feature scope or what the project does — that belongs to `plan-m`.**
 2. Confirm with user the current version (`vX.Y`).
-3. From the aligned understanding, discuss tech stack + API + design-system.
+3. From reading, discuss tech stack + API. Skip design-system unless you ask.
 4. Show `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from `references/AGENTS-template.md`, populated from scan + discussion) + `design-system.md` (if UI, from `references/design-system-template.md`).
 6. `mkdir -p docs/vX.Y` (if not already exists).

@@ -77,7 +77,7 @@ Manual alternative: copy this repo's `skills/` folder into your AI agent's skill
 
 ## Get started
 
-Run `meta-spec` once per project. It checks whether your project is brand new (no manifest file, no source code, no git) or already has work (a manifest, a framework, and a module), walks you through a quick discussion, and creates the files plus the first commit. After that the per-piece loop starts. See [00 — meta-spec](docs/00-meta-spec.md) for both flows.
+Run `meta-spec` once per project. It checks whether your project is brand new (no manifest file, no source code, no git) or already has work (a manifest, a framework, and a module), walks you through a quick **tech-only** discussion (stack + API; never features — those belong to `plan-m`), creates the files plus the first commit, and offers autonomous research on the app concept. After that the per-piece loop starts. See [00 — meta-spec](docs/00-meta-spec.md) for both flows.
 
 ## Two rules
 
