@@ -29,7 +29,7 @@ The agent does these in sequence:
 
    Record the final result only. Base B on the plan's UI/UX operation loop, adjusted to match the final code. List actual changed files and line ranges.
 
-2. **Handle new project-wide dependencies.** If any were introduced, ask which entries to append to `AGENTS.md ## Project Framework`, then re-invoke to commit. If none, skip.
+2. **Handle new project-wide dependencies.** If any were introduced, ask you which entries to append to `AGENTS.md ## Project Framework`, then re-invoke to commit. If none, skip.
 
 3. **Create one git commit for this Z.** Include code, `plan.md`, `spec.md`, `version.md`, and any approved `AGENTS.md` addition. Use message `v<X.Y.Z> <subheading for this Z, copied verbatim>`.
 

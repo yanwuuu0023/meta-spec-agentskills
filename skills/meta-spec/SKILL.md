@@ -17,16 +17,16 @@ description: Project bootstrap. Walks through language check → Fresh / In-Prog
 2. Discuss tech stack + API. Skip design-system unless you ask.
 3. Show `continue discussion or type init to initialize`. Wait for `init`.
 4. Initialize `AGENTS.md` (from `references/AGENTS-template.md`) + `design-system.md` (if UI, from `references/design-system-template.md`). Initialize project framework from step 2 discussion.
-5. `mkdir -p docs` (if not already exists).
+5. `mkdir -p docs/v0` (if not already exists).
 6. `git init` + commit `chore: init <project name> v0 with <stack>`. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
 
 **If In-Progress:**
 
 1. Full understanding on what the project does; discuss with user to align.
-2. Confirm with user the current version (`vX`).
+2. Confirm with user the current version (`vX.Y`).
 3. From the aligned understanding, discuss tech stack + API + design-system.
 4. Show `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from `references/AGENTS-template.md`, populated from scan + discussion) + `design-system.md` (if UI, from `references/design-system-template.md`).
-6. `mkdir -p docs` (if not already exists).
-7. Write `docs/vX/version.md`. Format decided at write-time.
-8. `git init` if needed, then `commit vX <brief description based on archive>`.
+6. `mkdir -p docs/vX.Y` (if not already exists).
+7. Write `docs/vX.Y/overview.md`. Format decided at write-time — project context that helps the agent on the first `todo-m` call. Not the same as per-Z `version.md` (which `commit-m` writes).
+8. `git init` if needed, then `commit vX.Y <brief description based on archive>`.

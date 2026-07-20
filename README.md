@@ -29,6 +29,7 @@ You adopt a fixed set of files in your project:
 └── docs/
     └── v1.0/                              ← one folder per major version
         ├── todo.md                        ← the checklist of small pieces to ship
+        ├── overview.md                    ← major-version context (written at bootstrap)
         └── v1.0.0/                        ← one folder per small piece
             ├── plan.md                    ← what was agreed
             ├── spec.md                    ← the implementation contract
@@ -66,7 +67,13 @@ A project-level `AGENTS.md` lives at your project root. The agent reads it at se
 
 ## Install
 
-Copy this repo's `skills/` folder into your AI agent's skills directory. The agent picks them up on the next session. Re-copy to update.
+```sh
+npx -- meta-spec-agentskills --host=<host>
+```
+
+Supported hosts: `codebuddy`, `trae`, `trae-cn`. Copies `skills/` into `<host>/skills/`. The agent picks them up on the next session. Re-run to update.
+
+Manual alternative: copy this repo's `skills/` folder into your AI agent's skills directory.
 
 ## Get started
 

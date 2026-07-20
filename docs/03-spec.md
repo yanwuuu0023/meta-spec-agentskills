@@ -11,7 +11,7 @@ You invoke `spec-m` either:
 - After agreeing on `docs/vX.Y/vX.Y.Z/plan.md`, or
 - After `plan-m` appends an agreed Plan Verification correction to `plan.md ## Updated`.
 
-**No-prompt write.** If you invoke with no extra description, the agent runs the three checks and writes `spec.md` immediately from `docs/vX.Y/vX.Y.Z/plan.md` and `docs/vX.Y/version.md` context — you read and edit the file yourself. Plan Verification halt still applies on any hard-check failure.
+**No-prompt write.** If you invoke with no extra description, the agent runs the three checks and writes `spec.md` immediately from `docs/vX.Y/vX.Y.Z/plan.md` and `docs/vX.Y/overview.md` context — you read and edit the file yourself. Plan Verification halt still applies on any hard-check failure.
 
 ## Step 1 — Verify the plan (three checks)
 

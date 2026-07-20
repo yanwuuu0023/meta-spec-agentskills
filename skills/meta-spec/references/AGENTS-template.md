@@ -10,9 +10,59 @@ todo-m → plan-m → spec-m → code-m → commit-m → plan-m
 
 Loop until every item in `todo.md` is done.
 
-Know which skill in the loop is current at every step by checking `/docs`.
-
 User invokes each skill in order; never skip a step.
+
+The filesystem is the source of truth for stage. When chat context is lost or a new window opens, recover from `docs/`.
+
+### Stage detection
+
+Active Z = smallest-Z unchecked subheading in `docs/vX.Y/todo.md`. For that Z:
+
+| `plan.md` | `spec.md` | Next skill |
+|---|---|---|
+| absent | absent | `plan-m` |
+| exists | absent | `spec-m` |
+| exists | exists | `code-m` or `commit-m` |
+
+User says "continue" without a skill name → check this table.
+
+### Body lock matrix
+
+Before editing any doc body:
+
+| Doc body | Editable until |
+|---|---|
+| `todo.md ## subversions` | first `plan-m` call for any Z in vX.Y |
+| `plan.md` body | first `spec-m` call for this Z |
+| `spec.md` body | first `code-m` call for this Z |
+
+Locked bodies accept only `## Updated` appends.
+
+### `## Updated` ownership
+
+| Doc | Appended by |
+|---|---|
+| `todo.md ## Updated` | `todo-m` only |
+| `plan.md ## Updated` | `plan-m` (correction) or `code-m` (drift) |
+| `spec.md ## Updated` | `spec-m` (after plan update) or `code-m` (drift) |
+
+Format: `- <skill-name>: <reason>; see <cross-ref>`. Create the section if absent.
+
+### File layout (per vX.Y)
+
+```
+docs/vX.Y/
+├── todo.md
+├── overview.md       ← meta-spec (project context)
+└── vX.Y.Z/
+    ├── plan.md        ← plan-m
+    ├── spec.md        ← spec-m
+    └── version.md     ← commit-m (per-Z shipped record)
+```
+
+`overview.md` is the major-version context doc (bootstrap writes); `version.md` inside `vX.Y.Z/` is the per-Z shipped record (commit-m writes). Two different files.
+
+Z comes from `todo.md` 1-indexed position; never authored.
 
 Stop and discuss with user when not 95% sure what to do.
 
@@ -46,7 +96,6 @@ Stop and discuss with user when not 95% sure what to do.
 ## Visual System
 
 > For colors, typography, spacing, and overall style see [`design-system.md`](./design-system.md).
-> does NOT duplicate it here.
 
 ---
 

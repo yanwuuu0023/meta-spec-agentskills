@@ -2,7 +2,7 @@
 
 > Scope: **colors, typography, spacing, overall style only**.
 > NOT scope: UI framework (see AGENTS.md → Project Framework),
-> components (see docs/vX.Y/plan.md or spec.md).
+> components (see docs/vX.Y/vX.Y.Z/plan.md or spec.md).
 > Format is optional; write it however fits.
 
 ---

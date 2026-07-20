@@ -1,6 +1,6 @@
 ---
 name: plan-m
-description: User invokes to turn a selected todo subheading into a Z-level plan with purpose, user flow, edge-case defaults, and Q&A.
+description: User invokes to turn a selected todo subheading into a Z-level plan with purpose, user flow, and edge-case defaults.
 ---
 
 ## What this skill does
@@ -9,7 +9,7 @@ description: User invokes to turn a selected todo subheading into a Z-level plan
 - for a selected unchecked subheading in `docs/vX.Y/todo.md`, or
 - after discussing a plan issue recorded by `spec-m` in `plan.md ## Updated`.
 
-**No-prompt write.** If the user invokes with no extra description, write `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/version.md` context — do not ask any clarifying question first. The user reads and edits the file themselves.
+**No-prompt write.** If the user invokes with no extra description, write `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/overview.md` context — do not ask any clarifying question first. The user reads and edits the file themselves.
 
 **Initial plan.** Write `docs/vX.Y/vX.Y.Z/plan.md` using this structure:
 
@@ -55,7 +55,7 @@ Rules:
 
 ## Why this skill exists
 
-`plan-m` turns a todo-sized intention into an agreed design before implementation details are written. Purpose, user flow, edge-case defaults, and Q&A make user-visible behavior explicit enough for `spec-m` to verify and translate into code instructions.
+`plan-m` turns a todo-sized intention into an agreed design before implementation details are written. Purpose, user flow, and edge-case defaults make user-visible behavior explicit enough for `spec-m` to verify and translate into code instructions.
 
 The selected todo subheading keeps the plan tied to one Z. The plan remains editable during planning, then becomes a stable design record when user invokes `spec-m`; later Plan Verification corrections are appended instead of rewriting that record.
 

@@ -11,7 +11,7 @@ You invoke `plan-m` either:
 - For a selected unchecked subheading in `docs/vX.Y/todo.md` (the common case), or
 - After discussing a plan issue recorded by `spec-m` in `plan.md ## Updated`.
 
-**No-prompt write.** If you invoke with no extra description, the agent writes `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/version.md` context — you read and edit the file yourself.
+**No-prompt write.** If you invoke with no extra description, the agent writes `plan.md` immediately from `docs/vX.Y/todo.md` and `docs/vX.Y/overview.md` context — you read and edit the file yourself.
 
 ## The plan structure
 
@@ -51,7 +51,7 @@ Clicks a task → Edit modal opens
 
 ## Flow inside this skill
 
-1. You select an unchecked subheading in `todo.md` (or you come from `spec-m` after a Plan Verification halt).
+1. Pick an unchecked subheading in `todo.md` — either explicitly named, or let the agent default to the smallest-Z unchecked. You may also come from `spec-m` after a Plan Verification halt.
 2. The agent writes `plan.md` (or you and the agent discuss purpose, UI flow, edge cases, and open questions).
 3. You iterate on `plan.md` through discussion.
 4. When you are happy, you invoke `spec-m`.

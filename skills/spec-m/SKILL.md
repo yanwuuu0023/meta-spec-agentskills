@@ -9,7 +9,7 @@ description: User invokes to verify an agreed plan and turn it into a Z-level im
 - after agreeing on `docs/vX.Y/vX.Y.Z/plan.md`, or
 - after `plan-m` appends an agreed Plan Verification correction to `plan.md ## Updated`.
 
-**No-prompt write.** If the user invokes with no extra description, run the three checks and write `spec.md` immediately from `docs/vX.Y/vX.Y.Z/plan.md` and `docs/vX.Y/version.md` context — do not ask any clarifying question first. The user reads and edits the file themselves. Plan Verification halt still applies on any hard-check failure.
+**No-prompt write.** If the user invokes with no extra description, run the three checks and write `spec.md` immediately from `docs/vX.Y/vX.Y.Z/plan.md` and `docs/vX.Y/overview.md` context — do not ask any clarifying question first. The user reads and edits the file themselves. Plan Verification halt still applies on any hard-check failure.
 
 **Step 1 — Verify the plan.** Run all three checks before drafting `spec.md`:
 

@@ -20,19 +20,19 @@
 2. Discuss tech stack + API. Skip design-system unless you ask.
 3. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
 4. Initialize `AGENTS.md` (from `skills/meta-spec/references/AGENTS-template.md`) + `design-system.md` (if UI, from `skills/meta-spec/references/design-system-template.md`). Initialize project framework from step 2 discussion.
-5. `mkdir -p docs` (if not already exists).
+5. `mkdir -p docs/v0` (if not already exists).
 6. `git init` + commit `chore: init <project name> v0 with <stack>`. The agent will offer to research similar apps' features; If yes, subagent will be created and dispatched to research first. The search results will be recorded in docs/research/.
 
 ## In-Progress flow
 
 1. The agent gains a full understanding of what the project already does, then discusses with you to align.
-2. You and the agent agree on the current version (`vX`).
+2. You and the agent agree on the current version (`vX.Y`).
 3. From that alignment, you discuss tech stack + API + design-system.
 4. The agent shows `continue discussion or type init to initialize`. Wait for `init`.
 5. Initialize `AGENTS.md` (from `skills/meta-spec/references/AGENTS-template.md`, populated from scan + discussion) + `design-system.md` (if UI, from `skills/meta-spec/references/design-system-template.md`).
-6. `mkdir -p docs` (if not already exists).
-7. Write `docs/vX/version.md`. The format is decided at write time — whatever helps the agent on the first `todo-m` call.
-8. `git init` if needed, then `commit vX <brief description based on archive>`.
+6. `mkdir -p docs/vX.Y` (if not already exists).
+7. Write `docs/vX.Y/overview.md` — major-version context doc. Format decided at write-time. Read by `plan-m` / `spec-m` for project context. Not the same as per-Z `version.md` (which `commit-m` writes).
+8. `git init` if needed, then `commit vX.Y <brief description based on archive>`.
 
 ## Outputs after bootstrap
 
@@ -40,7 +40,8 @@ Once bootstrap lands, the project has:
 
 - `AGENTS.md` at root — the agent's per-Z workflow owner.
 - `design-system.md` at root — only for UI projects.
-- `docs/vX/` — version directory with `version.md` inside (In-Progress flow only).
+- `docs/vX.Y/overview.md` — major-version context, read by `plan-m` / `spec-m`.
+- `docs/vX.Y/` — `todo.md` written next by `todo-m`. Per-Z `version.md` lives at `docs/vX.Y/vX.Y.Z/version.md`, written in `commit-m`.
 - `docs/research/` — populated by the subagent after the bootstrap commit, if the user accepted the research offer in Fresh flow step 6.
 - Git history with one bootstrap commit.
 - The workflow is ready to enter `todo-m`.

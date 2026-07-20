@@ -1,6 +1,6 @@
-# 07 — AGENTS.md (the agent's system prompt)
+# 06 — AGENTS.md (the agent's system prompt)
 
-[← 06-commit](06-commit.md) · [Back to README →](../README.md)
+[← 05-commit](05-commit.md) · [Back to README →](../README.md)
 
 ## What it is
 
@@ -19,7 +19,7 @@ A typical `AGENTS.md` covers:
 - **Project Framework** — the languages, frameworks, and tools in use (e.g. Next.js 15 + Hono 4 + PostgreSQL + Drizzle).
 - **Design System reference** — pointer to `design-system.md` if the project has UI.
 - **Preferred Skills + MCPs** — the skills the agent should reach for, and any external integrations already approved.
-- **Workflow loop** — the per-Z loop the agent follows, and where to find docs.
+- **Workflow loop** — the per-Z loop the agent follows. Includes 4 sub-sections the agent uses to recover its stage after chat context is lost: Stage detection (from `docs/`), Body lock matrix (which doc body is editable), `## Updated` ownership (which skill writes which append), and File layout (per-`vX.Y` folder structure).
 
 The body of `AGENTS.md` is editable by you. Treat it as a living document, not a one-shot setup. Update it as the project changes (new framework adopted, new MCP approved, etc.).
 
@@ -29,8 +29,8 @@ Without `AGENTS.md`, every new session starts from zero. The agent has to re-dis
 
 ## What it does NOT do
 
-- It does not contain the per-Z plan, spec, debug, or version documents (those live in `docs/vX.Y/vX.Y.Z/`).
+- It does not contain the per-Z plan, spec, or version documents (those live in `docs/vX.Y/vX.Y.Z/`).
 - It does not replace `design-system.md` — that file is referenced from `AGENTS.md` but lives separately.
 - It does not auto-update itself. You edit it as the project evolves.
 
-[← 06-commit](06-commit.md) · [Back to README →](../README.md)
+[← 05-commit](05-commit.md) · [Back to README →](../README.md)
